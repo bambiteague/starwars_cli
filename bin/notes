@@ -1,0 +1,19 @@
+
+1. build CLI
+2. welcome user, prompt to either select a list or tell to exit program
+3 if they select list, print the list of planets (modify this for my project)
+  1. planets
+4. they can select planet by name to find details of that planet **
+5. if they select exit, print a goodbye and then exit program
+
+classes:
+
+1. CLI - controller, what communicates with my user
+2. Planet - where objects are created and stored for user display
+3. API - bring in external data, consume API here 
+   and instantiate my objects here
+
+
+** need user to not exit out of program after each selection **
+
+Adding BONUS functionality that allows the user to re-enter the program in Wookie
