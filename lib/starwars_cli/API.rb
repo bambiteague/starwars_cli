@@ -1,3 +1,4 @@
+
 class API
 
   def self.get_data
@@ -6,9 +7,7 @@ class API
     planet_array.each do |planet|
       Planet.new(planet)
     end
-
   end
 
-  
 
 end

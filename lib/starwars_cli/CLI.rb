@@ -1,8 +1,10 @@
 class StarwarsCli::CLI
   def call
-   puts "Welcome, traveller!"
-   puts "To learn more about the planets in our far, far away galaxy, enter 'begin'"
-   puts "To exit the galaxy and return to your own, enter 'exit'"
+   puts ""
+   puts ""
+   puts "Welcome, traveller!".colorize(:yellow)
+   puts "To learn more about the planets in our far, far away galaxy, enter 'begin'".colorize(:yellow)
+   puts "To exit the galaxy and return to your own, enter 'exit'".colorize(:yellow)
    puts ""
    API.get_data
    menu
@@ -11,10 +13,13 @@ class StarwarsCli::CLI
   def menu
     input = gets.strip.downcase
     if input == "begin"
+      puts ""
       planet_list
     elsif input == "exit"
+      puts ""
       goodbye
     else
+      puts ""
       invalid_entry
     end
   end
@@ -22,21 +27,26 @@ class StarwarsCli::CLI
   def second_menu
     input = gets.strip.downcase
     if input == "continue"
+      puts ""
       planet_list
     elsif input == "exit"
+      puts ""
       goodbye
     else
+      puts ""
       invalid_entry
     end
   end
 
   def planet_list
-    Planet.all.each_with_index do |planet, index|  #only getting 10 of 60 output
+    puts ""
+    Planet.all.each_with_index do |planet, index|  
       puts "#{index + 1}. #{planet.name}"
     end
     puts ""
     puts ""
-    puts "Which planet would you like more detail about:"
+    puts "Which planet would you like more detail about:".colorize(:color => :black, :background => :yellow)
+    puts ""
     input = gets.strip.downcase
     planet_selection(input)
   end
@@ -44,28 +54,33 @@ class StarwarsCli::CLI
   def planet_selection(planet)
    p = Planet.find_by_name(planet)
    p.each do |x|
-    puts "Name: #{x.name}"
-    puts "Climate: #{x.climate}"
-    puts "Diameter: #{x.diameter}"
-    puts "Terrain: #{x.terrain}"
-    puts "Gravity: #{x.gravity}"
+    puts ""
+    puts "Name: #{x.name}".colorize(:yellow)
+    puts "Climate: #{x.climate}".colorize(:yellow)
+    puts "Diameter: #{x.diameter}".colorize(:yellow)
+    puts "Terrain: #{x.terrain}".colorize(:yellow)
+    puts "Gravity: #{x.gravity}".colorize(:yellow)
+    puts ""
+    puts ""
    end
    puts ""
-   puts "Enter 'continue' to select another planet and 'exit' to leave program"
+   puts "Enter 'continue' to select another planet and 'exit' to leave program".colorize(:color => :black, :background => :yellow)
+   puts ""
    second_menu
   end
 
   def goodbye
-    puts "So long, Traveller! May the Force be with you."
+    puts ""
+    puts "So long, Traveller! May the Force be with you.".colorize(:color => :yellow)
+    puts ""
   end
 
   def invalid_entry
-    puts "Invalid entry, please try again!"
+    puts ""
+    puts "Invalid entry, please try again!".colorize(:color => :white, :background => :red)
+    puts ""
     menu
   end
 end
 
-
-  # **BONUS**
-  # impliment a method to bring user back and allow them to run through again in Wookie Language
   
